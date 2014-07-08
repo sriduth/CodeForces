@@ -15,7 +15,7 @@ int main()
 		Economy of flipping open doors: l and r
 		Economy of flipping closed doors : T-l and T-r
 	*/
-		
+
 	for(int i=0;i<T;i++)
 	{
 		cin >> temp;
@@ -29,16 +29,22 @@ int main()
 			r++;
 	}
 
+
 	temp = 0;
 	if(T-l > l)
 		temp += l;
+	
 	else
 		temp += T-l;
 
+	/*
+		DUMBASS! attention!
+	*/
 	if(T-r > r)
 		temp += r;
 	else
-		temp += T-l;
+		temp += T-r;
+	
 
 	cout << temp << endl;
 
