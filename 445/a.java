@@ -17,6 +17,10 @@ class main
 			char b = 'W';
 			char w = 'B';
 			char temp = '-';
+
+			/*
+				Generate a board.
+			*/
 			for(int i=0;i<x;i++)
 			{
 				temp = b;
@@ -31,6 +35,10 @@ class main
 				}	
 			}
 
+			/*
+				Print the board.
+				Wherever there is - in input print - instead.
+			*/
 			for(int i=0;i<x;i++)
 			{
 				String input = inputReader.readLine();
