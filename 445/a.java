@@ -8,54 +8,39 @@ class main
 
 		try
 		{
-			String[] inputs = inputReader.readLine().split(" ");
-			int x = Integer.parseInt(inputs[0]);
-			int y = Integer.parseInt(inputs[1]);
+			String[] rowsColumns = inputReader.readLine().split(" ");
 
-			char[][] board = new char[x][y];
+			int rows = Integer.parseInt(rowsColumns[0]);
+			int columns = Integer.parseInt(rowsColumns[1]);
 
-			char b = 'W';
 			char w = 'B';
-			char temp = '-';
+			char b = 'W';
+			char t = '-';
 
-			/*
-				Generate a board.
-			*/
-			for(int i=0;i<x;i++)
+			for(int i=0;i<rows;i++)
 			{
-				temp = b;
-				b = w;
-				w = temp;
-				for(int j=0;j<y;j++)
-				{
-					if(j%2 == 0)
-						board[i][j] = b;
-					else
-						board[i][j] = w;
-				}	
-			}
+				String row = inputReader.readLine();
 
-			/*
-				Print the board.
-				Wherever there is - in input print - instead.
-			*/
-			for(int i=0;i<x;i++)
-			{
-				String input = inputReader.readLine();
-				for(int j=0;j<y;j++)
+				t = w;
+				w = b;
+				b = t;
+
+				for(int j=0;j<columns;j++)
 				{
-					if(input.charAt(j) == '-')
-						System.out.print('-');
-					else
-						System.out.print(board[i][j]);
-				}	
-		
+					if(row.charAt(j) == '-')
+						System.out.print("-");
+					else if(row.charAt(j) == '.' && j%2==0)
+						System.out.print(b);
+					else if(row.charAt(j) == '.' && j%2!=0)	
+						System.out.print(w);			
+				}
+				System.out.println(); 
 			}
 		}
-		catch(IOException ioexcep_)
+		catch(IOException ioexcep)
 		{
 			/*
-				Deal with it
+				Handle it.
 			*/
 		}
 	}
