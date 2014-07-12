@@ -4,12 +4,13 @@
 */
 import java.io.*;
 import java.util.*;
+import java.math.*;
 
 class main
 {
 	public static void main(String args[])
 	{
-		Map<Long,Long> pairs = new HashMap<Long,Long>();
+		Map<Integer,Integer> pairs = new HashMap<Integer,Integer>();
 		BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
 
 		try
@@ -19,28 +20,28 @@ class main
 
 			for(int i=0;i<count;i++)
 			{
-				long value = Long.parseLong(values[i]);
+				int value = Integer.parseInt(values[i]);
 				if(pairs.containsKey(value))
-					pairs.put(value, pairs.get(value)+1L);
+					pairs.put(value, pairs.get(value)+1);
 				
 				else
-					pairs.put(value,1L);
+					pairs.put(value,1);
 			}
 
 			/*
 				Another careless mistake!
 			*/
-			long totalPairs = 0L;
+			BigInteger totalPairs = BigInteger.ZERO;
 
 			/*
 				Dont try to remove Map.Entry.getKey() from Map pairs.
 				It results in ConcurrentModificationException.
 			*/
-			for(Map.Entry<Long,Long> entry : pairs.entrySet())
+			for(Map.Entry<Integer,Integer> entry : pairs.entrySet())
 			{
 				if(pairs.containsKey(-entry.getKey()) && entry.getKey().longValue() > 0)
 				{
-					totalPairs += entry.getValue()*pairs.get(-(entry.getKey()));
+					totalPairs = totalPairs.add(new BigInteger(Integer.toString(entry.getValue()*pairs.get(-(entry.getKey())))));
 				}
 			}
 
@@ -48,7 +49,7 @@ class main
 				Careless!
 			*/
 			if(pairs.containsKey(0))
-				totalPairs += (pairs.get(0)*(pairs.get(0)-1L))/2;
+				totalPairs = totalPairs.add(new BigInteger(Integer.toString((pairs.get(0)*(pairs.get(0)-1))/2)));
 
 			System.out.println(totalPairs);
 		}
