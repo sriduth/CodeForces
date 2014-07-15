@@ -4,59 +4,55 @@ import java.util.*;
 class main
 {
 	public static void main(String[] args) {
-
+		
 		BufferedReader inputStream = new BufferedReader(new InputStreamReader(System.in));
 
 		/*
-			LinkedHashMap maintains insertion order.
-			Was screwing around trying to implement LinkedHashMap before
-			stackoverflow epiphany. I'll do LinkedHashSet implementation later.
+			Using LinkedHashSet allows retrieval in order if insertion.
 		*/
-
-		Map<String,Integer> crewRats= new LinkedHashMap<String,Integer>();
-		Map<String,Integer> crewWomenKids = new LinkedHashMap<String,Integer>();
-		Map<String,Integer> crewMen = new LinkedHashMap<String,Integer>();
-		String captain = new String("");
+		Set<String> rats = new LinkedHashSet<String>();
+		Set<String> womenKids = new LinkedHashSet<String>();
+		Set<String> men = new LinkedHashSet<String>();
+		String captain = "";
 
 		try
 		{
-			int crew = Integer.parseInt(inputStream.readLine());
+			int count = Integer.parseInt(inputStream.readLine());
 
-			for(int i=1;i<=crew;i++)
+			for(int i=0;i<count;i++)
 			{
 				String[] crewMember = inputStream.readLine().split(" ");
 
-				if(crewMember[1].equals("man"))
-					crewMen.put(crewMember[0],i);
-				if(crewMember[1].equals("woman"))
-					crewWomenKids.put(crewMember[0],i);
 				if(crewMember[1].equals("rat"))
-					crewRats.put(crewMember[0],i);
+					rats.add(crewMember[0]);
+				if(crewMember[1].equals("woman"))
+					womenKids.add(crewMember[0]);
 				if(crewMember[1].equals("child"))
-					crewWomenKids.put(crewMember[0],i);
-				if(crewMember[1].equals("captain"))	
+					womenKids.add(crewMember[0]);
+				if(crewMember[1].equals("man"))
+					men.add(crewMember[0]);
+				if(crewMember[1].equals("captain"))
 					captain += crewMember[0];
+
 			}
 
-			for(Map.Entry<String,Integer> entry : crewRats.entrySet())
-				System.out.println(entry.getKey());
+			for(String crew : rats)
+				System.out.println(crew);
 
-			for(Map.Entry<String,Integer> entry : crewWomenKids.entrySet())
-				System.out.println(entry.getKey());
+			for(String crew : womenKids)
+				System.out.println(crew);
 
-			for(Map.Entry<String,Integer> entry : crewMen.entrySet())
-				System.out.println(entry.getKey());
+			for(String crew : men)
+				System.out.println(crew);
 
 			System.out.println(captain);
 
 		}
-
 		catch(IOException ioexcept)
 		{
 			/*
 				Handle It.
 			*/
 		}
-		
 	}
 }
