@@ -24,7 +24,7 @@ int main()
 		shelves -= ((cups-cups%5)/5 + 1);
 	}
 
-
+ 
 	if(medals%10 == 0)
 		shelves -= medals/10;
 	else
