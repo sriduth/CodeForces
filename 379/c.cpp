@@ -27,7 +27,7 @@ int main()
 	{
 		cin >> values[i];
 		index[i] = i;	
-	}
+	}	
 
 	sort(index.begin(),index.end(),compare);
 
