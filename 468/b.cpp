@@ -34,7 +34,7 @@ int main()
 			bool flag = false;
 			for(pair<int,int> Y : new_times)
 			{
-				if((X.first <= Y.first+i && Y.first + i <= X.second)|| (X.first <= Y.second + i && X.second >= Y.second + i))
+				if((X.first <= (Y.first+i) && Y.first + i <= X.second)|| (X.first <= Y.second + i && X.second >= Y.second + i))
 				{
 					sol.insert(i);
 					flag = true;
@@ -46,7 +46,6 @@ int main()
 		}
 	}
 
-	
 
 	cout << sol.size() << endl;
 	return 0;
