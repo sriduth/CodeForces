@@ -4,25 +4,33 @@ using namespace std;
 
 int main()
 {
-	int length,queries;
+	cin.sync_with_std(false);
 
-	cin >> length >> queries;
+	int length,queries,count_ones=0,count_mones=0;
 
-	int seq[length];
+	cin >> length;
 
 	int ones[length];
-	int mones[length];
 
-	int a;
-	for(int i=0;i<length;i++)
+	cin >> ones[0];
+
+	if(ones[0] == 1)
+		ones[0] = 1;
+	else
+		ones[0] = 0;
+
+	for(int i=1;i<length;i++)
 	{
-		cin >> seq[i];
-		if(seq[i] == 1){
-			ones[length]++;
-			
+		cin >> ones[i];
+		if(ones[i] == 1)
+		{
+			count_ones++;
+			ones[i] = ones[i-1] + 1; 
 		}
 		else
-			mones[length]
+		{
+			ones[i] = ones[i-1];
+			count_mones++;
+		}
 	}
-	return 0;
 }
