@@ -1,39 +1,33 @@
-#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <climits>
 
 using namespace std;
 
 int main()
 {
-	int T,i,sum=0,temp,x=0,y=0;
+	int n,sol = -INT_MAX;
+	scanf("%d",&n);
 
-	cin >> T;
-	if(T%2 != 0)
+	int seq[n];
+
+	for(int i=0;i<n;i++)
+		scanf("%d",&seq[i]);
+
+	for(int i=3;i<=n;i++)
 	{
-		while(T--)
+		if(n%i == 0)
 		{
-			cin >> temp;
-			sum += temp;
+			for(int j=0;j<n/i;j++)
+			{
+				int temp = 0;
+				for(int k=0;k<i;k++)
+					temp += seq[j +n/i*k];
+				sol = max(sol,temp);
+			}
 		}
-
-		cout << sum;
 	}
 
-	else
-	{
-		for(i=1;i<=T;i++)
-		{
-			cin >> temp;
-			sum += temp;
-			if(i%2==0)
-				x+=temp;
-			else
-				y+=temp;
-		}
-
-		if(T > 4)
-			cout << max(max(x,y),sum) << endl;
-		else
-			cout << sum << endl;
-	}
+	printf("%d\n",sol);	
 	return 0;
 }
