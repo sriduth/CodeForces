@@ -1,34 +1,15 @@
-#include <iostream>
-#include <cmath>
-#include <algorithm>
+#include <cstdio>
 
 using namespace std;
 
 int main()
 {
-	long long students,a,b;
+	int n,a,b;
 
-	cin >> students >> a >> b;
+	scanf("%d%d%d",&n,&a,&b);
 
-	if((a*b)/students >= 6)
-	{
-		cout << a*b << endl << a << " " << b << endl;
-	}
-	else
-	{
-		int op1 = a*max(b,ceil((6*students)/a));
-		int op2 = b*max(ceil((6*students)/b),a);
+	int area_required = 6*n;
 
-		if(op1 >= op2)
-		{
-			cout << op1 << endl;
-			cout << a << " " << max(ceil((6*students)/a),b);
-		}
-		else
-		{
-			cout << op2 << endl;
-			cout << b << " " << max(a,ceil((6*students)/b));
-		}
-	}
+	
 	return 0;
 }
