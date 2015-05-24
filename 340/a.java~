@@ -1,0 +1,23 @@
+import java.io.*;
+
+class main
+{
+    public static void main(String args[])
+    {
+	BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+	int x=0,y=0,a=0,b=0;
+
+	try
+	    {
+		x = Integer.parseInt(input.readLine());
+		y = Integer.parseInt(input.readLine());
+		a = Integer.parseInt(input.readLine());
+		b = Integer.parseInt(input.readLine());
+	    }
+	catch(IOException IOE)
+	    {
+		System.out.println("EXCEP");
+	    }
+	System.out.println(x);
+    }
+}

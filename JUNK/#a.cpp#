@@ -1,0 +1,7 @@
+#inlude <iostream>
+
+int main()
+{
+  std:: cout << 0.1 + 0.2 << endl;
+  return 0;
+}

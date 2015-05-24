@@ -1,0 +1,7 @@
+data = raw_input()
+data = list(data)
+
+data.remove('0')
+
+print ''.join(data)
+
