@@ -1,0 +1,13 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+  map<char, int> p;
+  p['q'] = 9;
+  p['r'] = 5;
+  p['']
+  return 0;
+}
